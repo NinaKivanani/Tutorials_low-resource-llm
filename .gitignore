@@ -37,3 +37,5 @@ session*_outputs/
 0_multilingual_tokenization_embeddings_setup.ipynb
 0_Setup.ipynb
 1_dialogue_summarization_low_resource_workshop_v2.ipynb
+yerevan_winter_school_multilingual_tokenization_embeddings_tutorial.ipynb
+yerevan_winter_school_cross_lingual_prompting_tutorial.ipynb
