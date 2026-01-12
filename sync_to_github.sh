@@ -293,45 +293,78 @@ fi
 # Push to GitHub
 echo -e "${YELLOW}📤 Pushing to GitHub...${NC}"
 if [ "$DRY_RUN" = false ]; then
-    # Check if this is the first push (no upstream set)
+    # Always fetch first to check remote state
+    echo -e "${YELLOW}🔍 Checking remote repository state...${NC}"
+    git fetch origin $CURRENT_BRANCH 2>/dev/null
+    
+    # Check if remote has commits we don't have
+    REMOTE_HAS_COMMITS=false
+    if git rev-parse --verify origin/$CURRENT_BRANCH >/dev/null 2>&1; then
+        if git log HEAD..origin/$CURRENT_BRANCH --oneline 2>/dev/null | grep -q .; then
+            REMOTE_HAS_COMMITS=true
+        fi
+    fi
+    
+    # Check if we have commits remote doesn't have
+    LOCAL_HAS_COMMITS=false
+    if git rev-parse --verify HEAD >/dev/null 2>&1; then
+        if [ -z "$(git rev-parse --verify origin/$CURRENT_BRANCH 2>/dev/null)" ] || \
+           git log origin/$CURRENT_BRANCH..HEAD --oneline 2>/dev/null | grep -q .; then
+            LOCAL_HAS_COMMITS=true
+        fi
+    fi
+    
     UPSTREAM_EXISTS=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null)
     
-    if [ -z "$UPSTREAM_EXISTS" ]; then
-        # First push - set upstream
-        echo -e "${YELLOW}📤 First push detected. Setting upstream branch...${NC}"
+    if [ "$REMOTE_HAS_COMMITS" = true ]; then
+        # Remote has content we don't have - need to merge first
+        echo -e "${YELLOW}⚠️  Remote repository has commits we don't have locally.${NC}"
+        echo -e "${YELLOW}   This usually happens when GitHub creates an initial README or license.${NC}"
+        
+        if [ "$FORCE_PUSH" = true ]; then
+            echo -e "${RED}🚨 Force push enabled - overwriting remote (dangerous!)${NC}"
+            if [ "$GIT_LFS_AVAILABLE" = true ]; then
+                git lfs push origin $CURRENT_BRANCH --force
+            fi
+            git push --force origin $CURRENT_BRANCH
+            if [ -z "$UPSTREAM_EXISTS" ]; then
+                git branch --set-upstream-to=origin/$CURRENT_BRANCH $CURRENT_BRANCH
+            fi
+        else
+            echo -e "${YELLOW}📥 Pulling remote changes first (using merge strategy)...${NC}"
+            git pull origin $CURRENT_BRANCH --no-rebase --allow-unrelated-histories
+            if [ $? -eq 0 ]; then
+                echo -e "${GREEN}✅ Successfully merged remote changes. Now pushing...${NC}"
+                echo -e "${YELLOW}📤 Pushing tutorial content...${NC}"
+                if [ "$GIT_LFS_AVAILABLE" = true ]; then
+                    git lfs push origin $CURRENT_BRANCH
+                fi
+                if [ -z "$UPSTREAM_EXISTS" ]; then
+                    git push -u origin $CURRENT_BRANCH
+                else
+                    git push origin $CURRENT_BRANCH
+                fi
+            else
+                echo -e "${RED}❌ Failed to merge. You may have conflicts.${NC}"
+                echo -e "${YELLOW}💡 Options:${NC}"
+                echo -e "${YELLOW}   1. Resolve conflicts manually, then run this script again${NC}"
+                echo -e "${YELLOW}   2. Use --force flag to overwrite remote (⚠️  will lose remote changes!)${NC}"
+                exit 1
+            fi
+        fi
+    elif [ "$LOCAL_HAS_COMMITS" = true ]; then
+        # We have commits to push
+        echo -e "${YELLOW}📤 Pushing tutorial content...${NC}"
         if [ "$GIT_LFS_AVAILABLE" = true ]; then
             git lfs push origin $CURRENT_BRANCH
         fi
-        git push -u origin $CURRENT_BRANCH
-    else
-        # Check if we need to pull first
-        git fetch origin $CURRENT_BRANCH 2>/dev/null
-        if git log HEAD..origin/$CURRENT_BRANCH --oneline 2>/dev/null | grep -q .; then
-            echo -e "${YELLOW}⚠️  Remote has new commits. Pulling first...${NC}"
-            if [ "$FORCE_PUSH" = true ]; then
-                echo -e "${RED}🚨 Force push enabled - skipping pull${NC}"
-                git push --force origin $CURRENT_BRANCH
-            else
-                git pull origin $CURRENT_BRANCH --rebase
-                if [ $? -eq 0 ]; then
-                    echo -e "${GREEN}✅ Successfully rebased. Now pushing...${NC}"
-                    echo -e "${YELLOW}📤 Pushing tutorial content...${NC}"
-                    if [ "$GIT_LFS_AVAILABLE" = true ]; then
-                        git lfs push origin $CURRENT_BRANCH
-                    fi
-                    git push origin $CURRENT_BRANCH
-                else
-                    echo -e "${RED}❌ Failed to rebase. Please resolve conflicts manually${NC}"
-                    exit 1
-                fi
-            fi
+        if [ -z "$UPSTREAM_EXISTS" ]; then
+            git push -u origin $CURRENT_BRANCH
         else
-            echo -e "${YELLOW}📤 Pushing tutorial content...${NC}"
-            if [ "$GIT_LFS_AVAILABLE" = true ]; then
-                git lfs push origin $CURRENT_BRANCH
-            fi
             git push origin $CURRENT_BRANCH
         fi
+    else
+        echo -e "${GREEN}✅ Local and remote are in sync. Nothing to push.${NC}"
     fi
     
     if [ $? -eq 0 ]; then
