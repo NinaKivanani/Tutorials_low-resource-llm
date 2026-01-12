@@ -68,12 +68,12 @@ GIT_LFS_AVAILABLE=false
 if command -v git-lfs &> /dev/null; then
     GIT_LFS_AVAILABLE=true
     echo -e "${GREEN}✅ Git LFS is installed${NC}"
-    
-    # Initialize LFS if not already done
+
+# Initialize LFS if not already done
     if [ ! -f ".gitattributes" ] || ! grep -q "*.pkl\|*.pt\|*.pth" .gitattributes 2>/dev/null; then
         echo -e "${YELLOW}🔧 Setting up Git LFS for large model files and outputs...${NC}"
-        if [ "$DRY_RUN" = false ]; then
-            git lfs install
+    if [ "$DRY_RUN" = false ]; then
+        git lfs install
             git lfs track "*.pkl"      # Pickle files (model outputs)
             git lfs track "*.pt"       # PyTorch model files
             git lfs track "*.pth"      # PyTorch model checkpoints
@@ -82,9 +82,9 @@ if command -v git-lfs &> /dev/null; then
             git lfs track "*.model"    # Generic model files
             git lfs track "*.zip"      # Compressed archives
             echo -e "${GREEN}✅ Git LFS configured for large model files${NC}"
-        else
-            echo -e "${CYAN}🧪 DRY RUN: Would setup Git LFS tracking${NC}"
-        fi
+    else
+        echo -e "${CYAN}🧪 DRY RUN: Would setup Git LFS tracking${NC}"
+    fi
     else
         echo -e "${GREEN}✅ Git LFS already configured${NC}"
     fi
@@ -110,7 +110,7 @@ fi
 
 if [ $TUTORIAL_FILES -gt 0 ]; then
     echo -e "${GREEN}✅ Found $TUTORIAL_FILES tutorial notebook(s)${NC}"
-else
+    else
     echo -e "${YELLOW}⚠️  No tutorial notebooks found in current directory${NC}"
 fi
 
@@ -159,7 +159,7 @@ session*_outputs/
 0_Setup.ipynb
 EOF
         echo -e "${GREEN}✅ Created .gitignore${NC}"
-    else
+        else
         echo -e "${CYAN}🧪 DRY RUN: Would create .gitignore${NC}"
     fi
 fi
@@ -244,7 +244,7 @@ if [ "$HAS_CHANGES" = false ]; then
         if [ "$DRY_RUN" = false ]; then
             echo -e "${YELLOW}📤 Pushing tutorial content...${NC}"
             if [ "$GIT_LFS_AVAILABLE" = true ]; then
-                git lfs push origin $CURRENT_BRANCH
+            git lfs push origin $CURRENT_BRANCH
             fi
             git push origin $CURRENT_BRANCH
             if [ $? -eq 0 ]; then
@@ -304,7 +304,7 @@ if [ "$DRY_RUN" = false ]; then
     # Check if remote has commits we don't have
     REMOTE_HAS_COMMITS=false
     if git rev-parse --verify origin/$CURRENT_BRANCH >/dev/null 2>&1; then
-        if git log HEAD..origin/$CURRENT_BRANCH --oneline 2>/dev/null | grep -q .; then
+    if git log HEAD..origin/$CURRENT_BRANCH --oneline 2>/dev/null | grep -q .; then
             REMOTE_HAS_COMMITS=true
         fi
     fi
@@ -341,12 +341,12 @@ if [ "$DRY_RUN" = false ]; then
                 echo -e "${GREEN}✅ Successfully merged remote changes. Now pushing...${NC}"
                 echo -e "${YELLOW}📤 Pushing tutorial content...${NC}"
                 if [ "$GIT_LFS_AVAILABLE" = true ]; then
-                    git lfs push origin $CURRENT_BRANCH
+                git lfs push origin $CURRENT_BRANCH
                 fi
                 if [ -z "$UPSTREAM_EXISTS" ]; then
                     git push -u origin $CURRENT_BRANCH
                 else
-                    git push origin $CURRENT_BRANCH
+                git push origin $CURRENT_BRANCH
                 fi
             else
                 echo -e "${RED}❌ Failed to merge. You may have conflicts.${NC}"
@@ -360,7 +360,7 @@ if [ "$DRY_RUN" = false ]; then
         # We have commits to push
         echo -e "${YELLOW}📤 Pushing tutorial content...${NC}"
         if [ "$GIT_LFS_AVAILABLE" = true ]; then
-            git lfs push origin $CURRENT_BRANCH
+        git lfs push origin $CURRENT_BRANCH
         fi
         if [ -z "$UPSTREAM_EXISTS" ]; then
             git push -u origin $CURRENT_BRANCH
