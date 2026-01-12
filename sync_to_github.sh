@@ -153,6 +153,10 @@ outputs/
 results/
 models/
 session*_outputs/
+
+# Excluded notebook files
+0_multilingual_tokenization_embeddings_setup.ipynb
+0_Setup.ipynb
 EOF
         echo -e "${GREEN}✅ Created .gitignore${NC}"
     else
