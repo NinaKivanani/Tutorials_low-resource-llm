@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🌍 Low-Resource Language Tutorials: LLMs for Everyone
 
 **Welcome to the future of inclusive AI!** 🚀
@@ -335,3 +336,6 @@ Every time you evaluate a model for a low-resource language, document a failure 
 
 *Last updated: January 2026*  
 *Repository: https://github.com/NinaKivanani/Tutorials_low-resource-llm*
+=======
+# Tutorials_low-resource-llm
+>>>>>>> 99e4572ea94b92d20d9555bc5279febdc8b0cd9c
