@@ -11,7 +11,7 @@ The sessions move from setup and multilingual analysis to dialogue summarization
 ## Trainers
 
 [Nina Hosseini-Kivanani](https://www.linkedin.com/in/ninahkivanani) (RTL & University of Luxembourg)  
-[Dimitra](https://www.linkedin.com/in/dimitraanastasiou/) (Luxembourg Institute of Science and Technology (LIST))  
+[Dimitra Anastasiou](https://www.linkedin.com/in/dimitraanastasiou/) (Luxembourg Institute of Science and Technology (LIST))  
 
 <!-- Trainer photo placeholder: replace with the final trainer photo -->
 ![Trainers photo placeholder](path/to/trainers-photo.png)
