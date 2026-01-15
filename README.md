@@ -47,16 +47,6 @@ You can run the notebooks in **Google Colab** or locally:
 - A Google account (for Colab) or a local Python 3 environment  
 - Basic familiarity with Python and Jupyter notebooks
 
-## Files in This Folder
-
-- `0_Setup.ipynb` and `0_multilingual_tokenization_embeddings_setup.ipynb`
-- `Session0_Orientation_and_Setup_LLMs_Low_Resource.ipynb`
-- `Session1_Dialogue_Summarization_Low_Resource.ipynb`
-- `Session2_prompt_engineering.ipynb`
-- `Session3_Fine_tuning_LLMs_for_Low_Resource.ipynb`
-- `Session4_Bias_Audit.ipynb`
-- Supporting media: `logo.png`, `image_prompt_demo.webp`
-
 ---
 
 If you need help, open an issue on the course repository or contact the organizers.
