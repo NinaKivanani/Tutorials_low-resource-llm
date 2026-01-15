@@ -3,8 +3,7 @@
 # UniDive Winter School — Hands-on Sessions (LLMs & Low-Resource NLP)
 
 
-This folder contains the **hands-on notebooks** for the UniDive Winter School training on **low-resource NLP and LLMs**.  
-The sessions move from setup and multilingual analysis to dialogue summarization, prompt engineering, fine-tuning, and bias auditing.
+This folder contains the **hands-on notebooks** for the UniDive Winter School training on **low-resource NLP and LLMs**. The sessions move from setup and multilingual analysis to dialogue summarization, prompt engineering, fine-tuning, and bias auditing.
 
 ## Trainers
 
