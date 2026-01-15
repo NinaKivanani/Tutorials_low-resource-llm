@@ -1,3 +1,5 @@
+![UniDive logo](a-modern-flat-illustration-depicting-a-d_cgGfscxgQJq2vN1b9R0Z2A_29ksyDnrQs-W7FiqosLasQ%20(1).png)
+
 # UniDive Winter School — Hands-on Sessions (LLMs & Low-Resource NLP)
 
 <!-- Image placeholder: replace with the final banner or course image -->
@@ -8,8 +10,8 @@ The sessions move from setup and multilingual analysis to dialogue summarization
 
 ## Trainers
 
-Nina Hosseini-Kivanani  
-Dimitra  
+[Nina Hosseini-Kivanani](https://www.linkedin.com/in/ninahkivanani) (RTL & University of Luxembourg)  
+[Dimitra](https://www.linkedin.com/in/dimitraanastasiou/) (Luxembourg Institute of Science and Technology (LIST))  
 
 <!-- Trainer photo placeholder: replace with the final trainer photo -->
 ![Trainers photo placeholder](path/to/trainers-photo.png)
