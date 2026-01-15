@@ -8,7 +8,11 @@ The sessions move from setup and multilingual analysis to dialogue summarization
 
 ## Trainers
 
-TBD — add names here.
+Nina Hosseini-Kivanani  
+Dimitra  
+
+<!-- Trainer photo placeholder: replace with the final trainer photo -->
+![Trainers photo placeholder](path/to/trainers-photo.png)
 
 ## Sessions
 
