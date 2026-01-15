@@ -2,8 +2,6 @@
 
 # UniDive Winter School — Hands-on Sessions (LLMs & Low-Resource NLP)
 
-<!-- Image placeholder: replace with the final banner or course image -->
-![Workshop banner placeholder](path/to/banner-image.png)
 
 This folder contains the **hands-on notebooks** for the UniDive Winter School training on **low-resource NLP and LLMs**.  
 The sessions move from setup and multilingual analysis to dialogue summarization, prompt engineering, fine-tuning, and bias auditing.
@@ -12,9 +10,6 @@ The sessions move from setup and multilingual analysis to dialogue summarization
 
 [Nina Hosseini-Kivanani](https://www.linkedin.com/in/ninahkivanani) (RTL & University of Luxembourg)  
 [Dimitra Anastasiou](https://www.linkedin.com/in/dimitraanastasiou/) (Luxembourg Institute of Science and Technology (LIST))  
-
-<!-- Trainer photo placeholder: replace with the final trainer photo -->
-![Trainers photo placeholder](path/to/trainers-photo.png)
 
 ## Sessions
 
