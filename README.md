@@ -23,8 +23,6 @@ Course proposal. [LLMs for Low-Resourced Languages (PDF)](https://unidive.lisn.u
 | 3 | Fine tuning LLMs for low resource languages         | Lightweight adaptation, training recipes, practical tips     | `Session3_Fine_tuning_LLMs_for_Low_Resource.ipynb`           | `slides/Session3_Fine_Tuning_LLMs_Low_Resource.pdf`  |
 | 4 | Bias audit                                          | Bias probing, stereotype prompts, simple audit protocol      | `Session4_Bias_Audit.ipynb`                                  | `slides/Session4_Bias_Audit.pdf`                     |
 
-Adjust the slide paths and filenames to match your repository structure.  
-If you prefer, you can keep slides in a top level `slides/` directory, or alongside the notebooks in the same folder.
 
 ## What you will learn
 
