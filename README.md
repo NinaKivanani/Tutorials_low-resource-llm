@@ -61,4 +61,6 @@ For a first run, execute all cells in order from top to bottom.
 If you need help with installation or running a specific session, please contact the organizers or open an issue in this repository.
 
 
-*Note. the illustration at the top of this page was generated with an AI image model for this tutorial.*
+---
+
+<sub><em>Logo illustration generated with an AI image model.</em></sub>
