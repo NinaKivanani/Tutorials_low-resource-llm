@@ -17,7 +17,7 @@ Course proposal. [LLMs for Low-Resourced Languages (PDF)](https://unidive.lisn.u
 | # | Title                                               | Focus                                                        | Notebook file                                                | Slides file                                          |
 |---|-----------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|------------------------------------------------------|
 | 0 | Orientation and setup                               | Environment check, language selection, evaluation template   | [Session0_Orientation_and_Setup_LLMs_Low_Resource.ipynb](Session0_Orientation_and_Setup_LLMs_Low_Resource.ipynb)     | `-----`          |
-| 1 | Dialogue summarization. low resource baselines      | Dialogue data, extractive baselines, simple evaluation       | [Session1_Foundations_of_Large_Language_Models] (Session1_Foundations_of_Large_Language_Models.ipynb)         | `slides/Session1_Dialogue_Summarization.pdf`         |
+| 1 | LLM Foundations and Analysis                        | Tokenization, embeddings, multilingual model comparison      | [Session1_Foundations_of_Large_Language_Models.ipynb](Session1_Foundations_of_Large_Language_Models.ipynb)   | `slides/Session1_LLM_Foundations.pdf`                |
 | 2 | Prompt engineering                                  | Prompt patterns, multilingual prompting, error analysis      | `Session2_prompt_engineering.ipynb`                          | `slides/Session2_Prompt_Engineering.pdf`             |
 | 3 | Fine tuning LLMs for low resource languages         | Lightweight adaptation, training recipes, practical tips     | `Session3_Fine_tuning_LLMs_for_Low_Resource.ipynb`           | `slides/Session3_Fine_Tuning_LLMs_Low_Resource.pdf`  |
 | 4 | Bias audit                                          | Bias probing, stereotype prompts, simple audit protocol      | `Session4_Bias_Audit.ipynb`                                  | `slides/Session4_Bias_Audit.pdf`                     |
@@ -27,8 +27,8 @@ Course proposal. [LLMs for Low-Resourced Languages (PDF)](https://unidive.lisn.u
 
 Across the full track, participants will.
 
-- explore multilingual tokenization and sentence embeddings  
-- build and evaluate dialogue summarization baselines for low resource languages  
+- explore multilingual tokenization and sentence embeddings across different LLM architectures
+- understand LLM foundations: how models process text and create representations
 - practice prompt engineering patterns and simple evaluation protocols  
 - experiment with fine tuning and parameter efficient adaptation strategies  
 - design and run a small scale bias and safety audit
