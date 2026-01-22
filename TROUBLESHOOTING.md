@@ -171,7 +171,71 @@ training_args = TrainingArguments(
 
 ---
 
-## Issue 6: Out of Memory Error 💾
+## Issue 6: CUDA Device-Side Assert Error During Generation 🚨
+
+**Error Message:**
+```
+AcceleratorError: CUDA error: device-side assert triggered
+```
+
+### What causes this?
+
+This error occurs during **model generation** (inference) after training, usually due to:
+- **Token IDs out of vocabulary range** (invalid token IDs)
+- **Missing pad_token_id or eos_token_id** configuration
+- **Model config mismatch** after PEFT wrapping
+- **Attention mask issues** during generation
+
+### Solution:
+
+**The notebook now handles this automatically** with:
+
+1. **Robust generation configuration** (Cell 24):
+   - Explicitly sets `pad_token_id` and `eos_token_id`
+   - Proper padding and truncation
+   - Error handling with try-except
+
+2. **Pre-generation verification** (Cell 23):
+   - Checks model and tokenizer configuration
+   - Validates token ID ranges
+   - Fixes missing configurations automatically
+
+**Manual fix (if needed):**
+```python
+# Before generation, ensure:
+peft_model.eval()  # Set to evaluation mode
+
+# Verify tokenizer configuration
+if tokenizer.pad_token_id is None:
+    tokenizer.pad_token = tokenizer.eos_token
+    peft_model.config.pad_token_id = tokenizer.pad_token_id
+
+# Generate with explicit token IDs
+outputs = peft_model.generate(
+    **inputs,
+    max_new_tokens=64,
+    pad_token_id=tokenizer.pad_token_id,
+    eos_token_id=tokenizer.eos_token_id,
+    use_cache=True,
+)
+```
+
+**If error persists:**
+```python
+# Try more conservative generation settings
+outputs = peft_model.generate(
+    **inputs,
+    max_new_tokens=32,  # Reduce length
+    do_sample=False,     # Disable sampling
+    num_beams=1,         # Greedy decoding
+    pad_token_id=tokenizer.pad_token_id,
+    eos_token_id=tokenizer.eos_token_id,
+)
+```
+
+---
+
+## Issue 7: Out of Memory Error 💾
 
 **Error:**
 ```
@@ -197,7 +261,7 @@ CUDA out of memory
 
 ---
 
-## Issue 7: Model Download Fails 🌐
+## Issue 8: Model Download Fails 🌐
 
 **Error:**
 ```
@@ -231,6 +295,8 @@ After installation, verify everything works:
 | 5. Model Loads | Cell 9 | Model loaded ✅ | ☐ |
 | 6. Training Config | Cell 20 | Precision selected ✅ | ☐ |
 | 7. Training Runs | Cell 21 | No gradient errors ✅ | ☐ |
+| 8. Model Verify | Cell 23 | Config validated ✅ | ☐ |
+| 9. Generation Works | Cell 24 | No CUDA errors ✅ | ☐ |
 
 ---
 
