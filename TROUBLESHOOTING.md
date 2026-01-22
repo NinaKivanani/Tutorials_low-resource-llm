@@ -235,7 +235,59 @@ outputs = peft_model.generate(
 
 ---
 
-## Issue 7: Out of Memory Error 💾
+## Issue 7: TrainingArguments Parameter Error 📝
+
+**Error Message:**
+```
+TypeError: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy'
+```
+
+### What causes this?
+
+This happens due to **API changes in transformers library**:
+- **Older versions** (<4.19): Use `evaluation_strategy`
+- **Newer versions** (≥4.19): Use `eval_strategy`
+
+The parameter was renamed for consistency with other parameters.
+
+### Solution:
+
+**The notebook now handles this automatically** by:
+1. Trying `eval_strategy` first (newer versions)
+2. Falling back to `evaluation_strategy` if that fails (older versions)
+3. **Works with all transformers versions!**
+
+**You don't need to do anything!** Cell 20 is now version-compatible.
+
+**Manual fix (if needed):**
+
+For **newer transformers** (4.19+):
+```python
+training_args = TrainingArguments(
+    ...
+    eval_strategy="epoch",  # New parameter name
+    ...
+)
+```
+
+For **older transformers** (<4.19):
+```python
+training_args = TrainingArguments(
+    ...
+    evaluation_strategy="epoch",  # Old parameter name
+    ...
+)
+```
+
+**Check your version:**
+```python
+import transformers
+print(transformers.__version__)
+```
+
+---
+
+## Issue 8: Out of Memory Error 💾
 
 **Error:**
 ```
@@ -261,7 +313,7 @@ CUDA out of memory
 
 ---
 
-## Issue 8: Model Download Fails 🌐
+## Issue 9: Model Download Fails 🌐
 
 **Error:**
 ```
