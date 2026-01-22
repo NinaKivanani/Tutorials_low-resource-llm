@@ -17,10 +17,11 @@ Course proposal. [LLMs for Low-Resourced Languages (PDF)](https://unidive.lisn.u
 | # | Title                                               | Focus                                                        | Notebook file                                                | Slides file                                          |
 |---|-----------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|------------------------------------------------------|
 | 0 | Orientation and setup                               | Environment check, language selection, evaluation template   | [Session0_Orientation_and_Setup_LLMs_Low_Resource.ipynb](Session0_Orientation_and_Setup_LLMs_Low_Resource.ipynb)     | `-----`          |
-| 1 | LLM Foundations and Analysis                        | Tokenization, embeddings, multilingual model comparison      | [Session1_Foundations_of_Large_Language_Models.ipynb](Session1_Foundations_of_Large_Language_Models.ipynb)   | `slides/Session1__Foundations_of_Large_Language_Models.pdf` |
-| 2 | Prompt engineering                                  | Prompt patterns, multilingual prompting, error analysis      | `Session2_prompt_engineering.ipynb`                          | `slides/Session2_prompt_engineering.pdf`             |
-| 3 | Fine tuning LLMs for low resource languages         | Lightweight adaptation, training recipes, practical tips     | `Session3_Fine_tuning_LLMs_for_Low_Resource.ipynb`           | `slides/Session3_Fine_Tuning_LLMs_Low_Resource.pdf`  |
-| 4 | Bias audit                                          | Bias probing, stereotype prompts, simple audit protocol      | `Session4_Bias_Audit.ipynb`                                  | `slides/Session4_Bias_Audit.pdf`                     |
+| 1 | LLM Foundations and Analysis                        | Tokenization, embeddings, multilingual model comparison      | [Session1_Foundations_of_Large_Language_Models.ipynb](Session1_Foundations_of_Large_Language_Models.ipynb)   | [Session1__Foundations_of_Large_Language_Models.pdf](slides/Session1__Foundations_of_Large_Language_Models.pdf) |
+| 2 | Prompt engineering                                  | Prompt patterns, multilingual prompting, error analysis      | [Session2_prompt_engineering.ipynb](Session2_prompt_engineering.ipynb)                          | [Session2_prompt_engineering.pdf](slides/Session2_prompt_engineering.pdf)             |
+| 3 | Fine tuning LLMs for low resource languages         | Lightweight adaptation, training recipes, practical tips     | [Session3_Fine_tuning_LLMs_for_Low_Resource.ipynb](Session3_Fine_tuning_LLMs_for_Low_Resource.ipynb)           | [Session3_Fine_Tuning_LLMs_Low_Resource.pdf](slides/Session3_Fine_Tuning_LLMs_Low_Resource.pdf)  |
+| 4 | Bias audit                                          | Bias probing, stereotype prompts, simple audit protocol      | [Session4_Bias_Audit.ipynb](Session4_Bias_Audit.ipynb)                                  | [Session4_Bias_Audit.pdf](slides/Session4_Bias_Audit.pdf)                     |
+| Info | HF & Google AI Token Setup                         | Authentication tokens for model access                       | [HuggingFace_GoogleAI_Token_Setup.md](Info_hf_googleai/HuggingFace_GoogleAI_Token_Setup.md) | `-----` |
 
 
 ## What you will learn
@@ -53,7 +54,7 @@ For a first run, execute all cells in order from top to bottom.
 
 Some notebooks require access to Hugging Face models and Google AI Studio. For detailed instructions on setting up authentication tokens, see:
 
-📋 **[HuggingFace & Google AI Token Setup Guide](HuggingFace_GoogleAI_Token_Setup.md)**
+📋 **[HuggingFace & Google AI Token Setup Guide](Info_hf_googleai/HuggingFace_GoogleAI_Token_Setup.md)**
 
 This guide covers:
 - Creating Hugging Face access tokens
