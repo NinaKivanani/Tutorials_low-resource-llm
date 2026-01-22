@@ -85,7 +85,23 @@ from transformers import AutoTokenizer
 tokenizer = AutoTokenizer.from_pretrained("model-name", token=hf_token)
 ```
 
-### Method 5: Jupyter Notebooks
+### Method 5: Google AI Studio
+1. Open [Google AI Studio](https://aistudio.google.com)
+2. In your notebook or project settings, look for **"Secrets"** or **"Environment Variables"**
+3. Add a new secret with:
+   - **Key**: `HF_TOKEN`
+   - **Value**: Your Hugging Face token
+4. In your code, access it with:
+```python
+import os
+hf_token = os.getenv('HF_TOKEN')
+
+# Use in your model loading
+from transformers import AutoTokenizer
+tokenizer = AutoTokenizer.from_pretrained("model-name", token=hf_token)
+```
+
+### Method 6: Jupyter Notebooks
 ```python
 import getpass
 import os
