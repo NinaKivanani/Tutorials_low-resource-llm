@@ -130,7 +130,48 @@ In Google Colab:
 
 ---
 
-## Issue 5: Out of Memory Error 💾
+## Issue 5: FP16 Gradient Scaling Error 🔧
+
+**Error Message:**
+```
+ValueError: Attempting to unscale FP16 gradients.
+```
+
+### What causes this?
+
+This happens when training with:
+- **FP16 (half precision)** enabled
+- **LoRA/PEFT** adapters applied
+- Gradient scaling conflicts between FP16 and LoRA
+
+### Solution:
+
+**The notebook now handles this automatically** by:
+1. Checking if **BF16** (bfloat16) is supported → uses it (better for LoRA)
+2. If not supported → uses **FP32** (full precision) for stability
+3. **Avoids FP16** which causes gradient scaling issues with LoRA
+
+**You don't need to do anything!** Cell 20 now automatically selects the best precision.
+
+**Manual fix (if needed):**
+```python
+# In TrainingArguments (Cell 20), ensure:
+training_args = TrainingArguments(
+    ...
+    bf16=torch.cuda.is_bf16_supported(),  # Use BF16 if available
+    fp16=False,  # Disable FP16 to avoid gradient issues
+    ...
+)
+```
+
+**Performance impact:**
+- BF16: Same speed as FP16, better stability ✅
+- FP32: ~20% slower, maximum stability ✅
+- FP16: Fast but causes errors with LoRA ❌
+
+---
+
+## Issue 6: Out of Memory Error 💾
 
 **Error:**
 ```
@@ -156,7 +197,7 @@ CUDA out of memory
 
 ---
 
-## Issue 6: Model Download Fails 🌐
+## Issue 7: Model Download Fails 🌐
 
 **Error:**
 ```
@@ -188,6 +229,8 @@ After installation, verify everything works:
 | 3. PEFT Verify | Cell 5 | PEFT imported ✅ | ☐ |
 | 4. Imports Work | Cell 8 | No errors ✅ | ☐ |
 | 5. Model Loads | Cell 9 | Model loaded ✅ | ☐ |
+| 6. Training Config | Cell 20 | Precision selected ✅ | ☐ |
+| 7. Training Runs | Cell 21 | No gradient errors ✅ | ☐ |
 
 ---
 
