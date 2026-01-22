@@ -78,7 +78,40 @@ This happens when:
 
 ---
 
-## Issue 3: CUDA/GPU Not Detected ⚠️
+## Issue 3: FlashAttention2 Error ⚡
+
+**Error Message:**
+```
+FlashAttention2 has been toggled on, but it cannot be used due to the following error: 
+the package flash_attn seems to be not installed.
+```
+
+### What is FlashAttention2?
+
+- An **optimization** for faster attention computation
+- **Not required** - just makes training faster
+- Difficult to install in Colab (requires specific CUDA versions)
+
+### Solution:
+
+**The notebook now handles this automatically** by:
+1. Trying to use FlashAttention2 if available
+2. **Falling back to standard attention** if not installed
+3. Still works perfectly, just slightly slower
+
+**You don't need to do anything!** The model will load with standard attention.
+
+**If you want to install FlashAttention2 (optional):**
+```python
+# Warning: This may fail in Colab
+!pip install flash-attn --no-build-isolation
+```
+
+**Note:** Standard attention works fine for this tutorial. The speed difference is minimal for the small dataset we're using.
+
+---
+
+## Issue 4: CUDA/GPU Not Detected ⚠️
 
 **Message:**
 ```
@@ -97,7 +130,7 @@ In Google Colab:
 
 ---
 
-## Issue 4: Out of Memory Error 💾
+## Issue 5: Out of Memory Error 💾
 
 **Error:**
 ```
@@ -123,7 +156,7 @@ CUDA out of memory
 
 ---
 
-## Issue 5: Model Download Fails 🌐
+## Issue 6: Model Download Fails 🌐
 
 **Error:**
 ```
