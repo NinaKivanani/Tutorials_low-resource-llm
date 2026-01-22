@@ -49,6 +49,17 @@ You can run the notebooks in Google Colab or locally.
 Each notebook is self contained and includes its own setup cell at the top.  
 For a first run, execute all cells in order from top to bottom.
 
+### Token Setup for Model Access
+
+Some notebooks require access to Hugging Face models and Google AI Studio. For detailed instructions on setting up authentication tokens, see:
+
+📋 **[HuggingFace & Google AI Token Setup Guide](HuggingFace_GoogleAI_Token_Setup.md)**
+
+This guide covers:
+- Creating Hugging Face access tokens
+- Setting up tokens in Google Colab, Google AI Studio, and Jupyter environments
+- Security best practices for token management
+
 ## Prerequisites
 
 - A laptop with stable internet access  
