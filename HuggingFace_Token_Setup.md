@@ -68,15 +68,6 @@ tokenizer = AutoTokenizer.from_pretrained("model-name")
 model = AutoModel.from_pretrained("model-name")
 ```
 
-### Method 3: Environment Variable Setup
-```bash
-# Add to your ~/.bashrc, ~/.zshrc, or equivalent
-export HF_TOKEN="hf_your_token_here"
-
-# Then reload your shell
-source ~/.bashrc  # or ~/.zshrc
-```
-
 ### Method 4: Google Colab
 1. Open your Colab notebook
 2. Click the **key icon** (🔑) in the left sidebar to access "Secrets"
@@ -84,6 +75,7 @@ source ~/.bashrc  # or ~/.zshrc
 4. Set the name as `HF_TOKEN`
 5. Paste your token as the value
 6. In your code, access it with:
+
 ```python
 from google.colab import userdata
 hf_token = userdata.get('HF_TOKEN')
@@ -117,9 +109,6 @@ tokenizer = AutoTokenizer.from_pretrained("model-name")
 
 ### ❌ DON'T:
 - Share tokens publicly (GitHub, forums, etc.)
-- Hard-code tokens in source code
-- Use Write tokens unless necessary
-- Store tokens in plain text files
 
 ## Troubleshooting
 
@@ -146,9 +135,6 @@ except Exception as e:
 - [Transformers Library Documentation](https://huggingface.co/docs/transformers)
 - [Hugging Face Hub API](https://huggingface.co/docs/huggingface_hub)
 
-## Questions or Issues?
-
-If you encounter any problems during the workshop, please ask the instructors for assistance.
 
 ---
 *Created for the UniDive Winter School on Large Language Models for Low-Resource Languages*
