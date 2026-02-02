@@ -44,7 +44,7 @@ You can run the notebooks in Google Colab or locally.
 
 - **Local Jupyter.**  
   - install Python 3 and Jupyter  
-  - install dependencies: `pip install -r requirements.txt` (see [SETUP.md](SETUP.md) for detailed instructions)  
+  - install dependencies: `pip install -r requirements.txt`
   - run `jupyter lab` or `jupyter notebook` and open the corresponding `.ipynb` file  
 
 Each notebook is self contained and includes its own setup cell at the top.  
