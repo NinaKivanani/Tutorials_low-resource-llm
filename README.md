@@ -55,8 +55,6 @@ For a first run, execute all cells in order from top to bottom.
 For students running locally, we provide:
 
 - **[requirements.txt](requirements.txt)** - Complete list of Python packages for all sessions
-- **[SETUP.md](SETUP.md)** - Detailed setup guide with troubleshooting tips
-
 ### Token Setup for Model Access
 
 Some notebooks require access to Hugging Face models and Google AI Studio. For detailed instructions on setting up authentication tokens, see:
