@@ -1,0 +1,82 @@
+# Winter School: LLMs for Low-Resource Languages
+# Requirements file for all sessions (0-4)
+# Compatible with Python 3.8+
+
+# ========================================
+# HOW TO USE THIS REQUIREMENTS FILE:
+# ========================================
+#
+# METHOD 1: Basic Installation
+# pip install -r requirements.txt
+#
+# METHOD 2: With Virtual Environment (Recommended)
+# python -m venv llm_workshop
+# source llm_workshop/bin/activate    # On Windows: llm_workshop\Scripts\activate
+# pip install -r requirements.txt
+#
+# METHOD 3: With Conda
+# conda create -n llm_workshop python=3.10
+# conda activate llm_workshop
+# pip install -r requirements.txt
+#
+# VERIFICATION:
+# After installation, test in Python:
+#   import torch, transformers, datasets, sklearn
+#   print("✅ Setup successful!")
+#
+# TROUBLESHOOTING:
+# - If errors occur, try: pip install --upgrade pip
+# - For GPU support: Install PyTorch with CUDA first
+# - On Apple Silicon: Use --index-url https://download.pytorch.org/whl/cpu for torch
+#
+# ========================================
+
+# Core Scientific Computing
+numpy>=1.21.0,<2.0.0
+pandas>=1.3.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+scikit-learn>=1.0.0
+scipy>=1.7.0
+
+# Deep Learning & LLM Frameworks
+torch>=1.12.0
+transformers>=4.20.0
+datasets>=2.0.0
+accelerate>=0.20.0
+sentence-transformers>=2.2.0
+
+# Tokenization & Text Processing
+tokenizers>=0.13.0
+sentencepiece>=0.1.97
+
+# Fine-tuning (Session 3)
+peft>=0.4.0
+bitsandbytes>=0.39.0
+
+# API & Web Requests
+requests>=2.28.0
+
+# Text Analysis & NLP
+textblob>=0.17.0
+langdetect>=1.0.9
+
+# Visualization & Plotting
+plotly>=5.0.0
+wordcloud>=1.9.0
+
+# Data & File Handling
+openpyxl>=3.0.0
+xlsxwriter>=3.0.0
+
+# Optional but Useful
+tqdm>=4.64.0
+jupyter>=1.0.0
+ipywidgets>=7.6.0
+
+# Development & Utilities
+pathlib2>=2.3.0; python_version < "3.4"
+typing-extensions>=4.0.0; python_version < "3.8"
+
+# Note: Some packages may show dependency conflicts in Conda environments
+# These are typically safe to ignore for educational purposes

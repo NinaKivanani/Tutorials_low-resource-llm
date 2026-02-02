@@ -44,11 +44,18 @@ You can run the notebooks in Google Colab or locally.
 
 - **Local Jupyter.**  
   - install Python 3 and Jupyter  
-  - install dependencies listed in the notebooks (or in a separate `requirements.txt`)  
+  - install dependencies: `pip install -r requirements.txt` (see [SETUP.md](SETUP.md) for detailed instructions)  
   - run `jupyter lab` or `jupyter notebook` and open the corresponding `.ipynb` file  
 
 Each notebook is self contained and includes its own setup cell at the top.  
 For a first run, execute all cells in order from top to bottom.
+
+### 🚀 Local Setup Files
+
+For students running locally, we provide:
+
+- **[requirements.txt](requirements.txt)** - Complete list of Python packages for all sessions
+- **[SETUP.md](SETUP.md)** - Detailed setup guide with troubleshooting tips
 
 ### Token Setup for Model Access
 
